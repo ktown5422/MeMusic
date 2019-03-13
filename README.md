@@ -1,0 +1,1 @@
+MeMusic will consist of music from artist all over the world. Users will have access to Search Artist, Users will be able Comment, Like and create a playlist for their favorite music.
