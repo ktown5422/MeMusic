@@ -1,1 +1,2 @@
-MeMusic will consist of music from artist all over the world. Users will have access to Search Artist, Users will be able Comment, Like and create a playlist for their favorite music.
+* MeMusic - A Music Platform for Listeners around the world
+MeMusic will consist of music from artist all over the world. Users will have access to Search Artist, Users will be able to select diffrent genres of music, like and Access playlist of their favorite music.

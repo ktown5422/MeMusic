@@ -1,0 +1,24 @@
+{
+  "name": "capstone-project",
+  "version": "1.0.0",
+  "description": "* MeMusic - A Platform for Music Creators\r MeMusic will consist of music from artist all over the world. Users will have access to Search Artist, Users will be able to select diffrent genres of music, like and create a playlist for their favorite music.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktown5422/MeMusic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ktown5422/MeMusic/issues"
+  },
+  "homepage": "https://github.com/ktown5422/MeMusic#readme",
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "parcel-bundler": "^1.12.2"
+  }
+}
