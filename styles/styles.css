@@ -18,7 +18,7 @@
 /*Navigation*/
 
 #navigation {
-    background-image: linear-gradient( to right, red, #f06d06);
+    background-image: linear-gradient( to right, rgb(1, 29, 21), #08ad97);
     position: sticky;
     top: 0;
     grid-area: navigation;
@@ -75,7 +75,7 @@
     top: 25px;
     right: 0;
     left: 0;
-    background-image: linear-gradient( to right, red, #f06d06);
+    background-image: linear-gradient( to right, rgb(1, 29, 21), #08ad97);
     display: none;
     margin-top: 35px;
 }
@@ -109,57 +109,6 @@
 #header h1 {
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
-}
-
-/* Image and Contents of image*/
-
-.minipic {
-    max-width: 960px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 65px;
-}
-
-.minipic img {
-    width: 200px;
-    border-radius: 50%;
-}
-
-.minipic h1 {
-    font-size: 2em;
-    font-weight: 300;
-    color: #373d46;
-}
-
-.minipic p {
-    font-weight: 300;
-    line-height: 1.8em;
-    color: #373d46;
-}
-
-.action-btn {
-    display: inline-block;
-    text-decoration: none;
-    color: whitesmoke;
-    font-weight: 700;
-    background-image: linear-gradient( to right, red, #f06d06);
-    padding: 0.5em 2em;
-    border-radius: 40px;
-    margin: 1em 0;
-    font-family: 'Permanent Marker', cursive;
-    
-}
-
-
-.action-btn a {
-    text-decoration: none;
-    
-   
-}
-.action-btn a:hover {
-    box-shadow: 0 10px 50px rgb(162, 165, 135)
-    
-    
 }
 
 

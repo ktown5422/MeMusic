@@ -1,5 +1,5 @@
 export default {
-    'body': 'Playlist',
+    'body': 'Releases',
     'links': [ 'Dashboard', 'Releases', 'Playlist', 'Genres' ],
-    'title': 'Playlist'
+    'title': 'New Releases'
 };
