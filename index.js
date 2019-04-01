@@ -10,7 +10,7 @@ import axios from 'axios';
 
 var router = new Navigo(location.origin);
 var root = document.querySelector('#root');
-const YOUR_API_KEY = 'cea06967a0f646a89a315d7a628e60b1';
+
 
 function render(state){
     root.innerHTML = `
@@ -24,13 +24,15 @@ function render(state){
 }
 
 axios
-    .get('https://developer.spotify.com/documentation/web-api/', {
-        'headers': {
-            'Authorization': `token ${$YOUR_API_KEY}`
-        }
-    })
-    .then((response) => store.dispatch((state) => assign(state, { 'repos': response.data })));
-
+    .post('https://memusic.herokuapp.com/login')
+    .then((response) => axios
+        .get('https://api.spotify.com/v1/browse/categories/party/playlists', {
+            'headers': {
+                'Authorization': `Bearer ${response.data}`
+            }
+        })
+    );
+// .then((response) => store.dispatch((state) => Object.assign(state, { 'playlists': response.data.playlists.items })));
 
 function navHandler(params){
     var destination = startCase(params.page);
