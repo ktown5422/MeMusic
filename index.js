@@ -41,13 +41,15 @@ axios
 // .then((response) => store.dispatch((state) => Object.assign(state, { 'playlists': response.data.playlists.items })));
 axios
     .post('https://memusic.herokuapp.com/login')
-    .then((response) => axios
-        .get('https://api.spotify.com/v1/search ', {
-            'headers': {
-                'Authorization': `Bearer ${response.data}`
-            }
-        })
-    );
+    .then((response) => {
+        axios
+            .get('https://api.spotify.com/v1/search?q=tania%20bowra&type=artist ', {
+                'headers': {
+                    'Authorization': `Bearer ${response.data}`
+                }
+            })
+            .then((response) => console.log('search', response));
+    });
 
 
 function navHandler(params){
