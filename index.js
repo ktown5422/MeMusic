@@ -23,34 +23,39 @@ function render(state){
     router.updatePageLinks();
 
     const button = document.querySelector('button');
+    
 
-    button.addEventListener('click', () => console.log(document.querySelector('#site-search').value));
+    button.addEventListener('click', () => {
+        var searchValue = document.querySelector('#site-search').value;
+
+        axios
+            .post('https://memusic.herokuapp.com/login')
+            .then((response) => {
+                axios
+                    .get(`https://api.spotify.com/v1/search?q=${searchValue}&type=artist `, {
+                        'headers': {
+                            'Authorization': `Bearer ${response.data}`
+                        }
+                    })
+                    .then((response) => console.log('search', response));
+            });
+    });
 }
 
 
 axios
     .post('https://memusic.herokuapp.com/login')
-    .then((response) => axios
-        .get('https://api.spotify.com/v1/browse/categories/party/playlists', {
-            'headers': {
-                'Authorization': `Bearer ${response.data}`
-            }
-        })
-    );
-
-// .then((response) => store.dispatch((state) => Object.assign(state, { 'playlists': response.data.playlists.items })));
-axios
-    .post('https://memusic.herokuapp.com/login')
     .then((response) => {
         axios
-            .get('https://api.spotify.com/v1/search?q=tania%20bowra&type=artist ', {
+            .get('https://api.spotify.com/v1/browse/categories/party/playlists', {
                 'headers': {
                     'Authorization': `Bearer ${response.data}`
                 }
             })
-            .then((response) => console.log('search', response));
+            .then((response) => console.log('playlist', response.data));
     });
 
+// .then((response) => store.dispatch((state) => Object.assign(state, { 'playlists': response.data.playlists.items })));
 
 function navHandler(params){
     var destination = startCase(params.page);
