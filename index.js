@@ -21,7 +21,12 @@ function render(state){
                 `;
 
     router.updatePageLinks();
+
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', () => console.log(document.querySelector('#site-search').value));
 }
+
 
 axios
     .post('https://memusic.herokuapp.com/login')
@@ -32,7 +37,18 @@ axios
             }
         })
     );
+
 // .then((response) => store.dispatch((state) => Object.assign(state, { 'playlists': response.data.playlists.items })));
+axios
+    .post('https://memusic.herokuapp.com/login')
+    .then((response) => axios
+        .get('https://api.spotify.com/v1/search ', {
+            'headers': {
+                'Authorization': `Bearer ${response.data}`
+            }
+        })
+    );
+
 
 function navHandler(params){
     var destination = startCase(params.page);
