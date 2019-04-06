@@ -2,7 +2,7 @@ import Navigation from './src/Navigation';
 import Header from './src/Header';
 import Content from './src/Content';
 import Footer from './src/Footer';
-import * as State from './state';
+import * as BaseState from './state';
 import { startCase } from 'lodash';
 import Navigo from 'navigo';
 import axios from 'axios';
@@ -10,14 +10,15 @@ import axios from 'axios';
 
 var router = new Navigo(location.origin);
 var root = document.querySelector('#root');
+var State = Object.assign({}, BaseState);
 
 
 function render(state){
     root.innerHTML = `
-                ${Navigation(state)}
-                ${Header(state)}
+                ${Navigation(state[state.active])}
+                ${Header(state[state.active])}
                 ${Content(state)}
-                ${Footer(state)}
+                ${Footer(state[state.active])}
                 `;
 
     router.updatePageLinks();
@@ -47,7 +48,24 @@ axios
     .post('https://memusic.herokuapp.com/login')
     .then((response) => {
         axios
-            .get('https://api.spotify.com/v1/browse/categories/party/playlists', {
+            .get('https://api.spotify.com/v1/browse/categories', {
+                'headers': {
+                    'Authorization': `Bearer ${response.data}`
+                }
+            })
+            .then((response) => {
+                State.categories = response.data.categories.items;
+                render(State);
+            });
+    });
+
+// .then((response) => store.dispatch((state) => Object.assign(state, { 'playlists': response.data.playlists.items })));
+
+axios
+    .post('https://memusic.herokuapp.com/login')
+    .then((response) => {
+        axios
+            .get('https://api.spotify.com/v1/browse/featured-playlists', {
                 'headers': {
                     'Authorization': `Bearer ${response.data}`
                 }
@@ -55,12 +73,13 @@ axios
             .then((response) => console.log('playlist', response.data));
     });
 
-// .then((response) => store.dispatch((state) => Object.assign(state, { 'playlists': response.data.playlists.items })));
 
 function navHandler(params){
     var destination = startCase(params.page);
+
+    State.active = destination;
    
-    render(State[destination]);
+    render(State);
 }
 
 router

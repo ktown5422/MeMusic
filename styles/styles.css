@@ -97,7 +97,17 @@
     margin-right: 10px;
     width: 20px; 
 }
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    text-align: center;
+  }
+  .search-box {
 
+  }
 
 /* Header */
 
@@ -115,7 +125,7 @@
 /* Content */
 
 #content {
-    height: 79vh;
+    height: 100%;
     grid-area: content;
 }
 
@@ -129,6 +139,7 @@
     background-color: whitesmoke;
     grid-area: footer;
     position: sticky;
+    display: flex;
 }
 
 #footer ul {
