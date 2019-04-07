@@ -3,9 +3,7 @@ export default function(){
 
 <div id="footer">
     <div class="container">
-      <ul>
-        <li><a href="#">MeMusic</a></li>
-      </ul>
+        <h1>MeMusic</h1>
     </div>
   </div>
   `;

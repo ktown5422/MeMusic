@@ -54,11 +54,10 @@ export default function Dashboard(state){
           <div id="content">
             <div class="container">
               <div class="search-box">
-                <label for="site-search">MeMusic:</label>
-                <input type="search" id="site-search" name="q"
-                      aria-label="Search through site content">
-                
+                <form="site-search">
+                <input type="search" id="site-search" placeholder="Search Artist">
                 <button id="search-b">Search</button>
+                </form>
               </div>
               <div>
                 <h1>World Party Releases</h1>
