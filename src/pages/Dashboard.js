@@ -59,7 +59,7 @@ export default function Dashboard(state){
                 <button id="search-b">Search</button>
                 </form>
               </div>
-              <div>
+              <div class="search-state">
                 <h1>World Party Releases</h1>
                 <div class="wrapper">
                 ${Playlists(state.playlists)}

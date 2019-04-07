@@ -38,7 +38,10 @@ function render(state){
                             'Authorization': `Bearer ${response.data}`
                         }
                     })
-                    .then((response) => console.log('search', response));
+                    .then((response) => {
+                        State.categories = response.data.artist.items;
+                        render(State);
+                    });
             });
     });
 }
