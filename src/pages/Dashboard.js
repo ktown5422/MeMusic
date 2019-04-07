@@ -1,14 +1,55 @@
-function Categories(categories){
-    return categories
-        .slice(0, 8)
-        .map((category) => `<div><img src="${category.icons[0].url}"></div>`)
-        .join('');
+function Category(category){
+    return `
+      <div>
+        <h4>${category.name}</h4>
+        <img src="${category.icons[0].url}">
+      </div>
+    `;
 }
 
 
+function Categories(categories){
+    return categories
+        .slice(0, 8)
+        .map(Category)
+        .join('');
+}
+
+function Playlist(playlist){
+    return `
+    <div>
+      <h4>${playlist.name}</h4>
+      <img src="${playlist.images[0].url}">
+    </div>
+  `;
+}
+
+
+function Playlists(playlists){
+    return playlists
+        .slice(0, 8)
+        .map(Playlist)
+        .join('');
+}
+
+function Worldpartys(worldpartys){
+    return `
+    <div>
+      <h4>${worldpartys.name}</h4>
+      <img src="${worldpartys.images[0].url}">
+    </div>
+  `;
+}
+
+
+function Worldparty(worldparty){
+    return worldparty
+        .slice(0, 8)
+        .map(Worldpartys)
+        .join('');
+}
+
 export default function Dashboard(state){
-    console.log(state.categories);
-   
     return ` 
           <div id="content">
             <div class="container">
@@ -20,33 +61,19 @@ export default function Dashboard(state){
                 <button id="search-b">Search</button>
               </div>
               <div>
-                <h1>New Releases</h1>
+                <h1>World Party Releases</h1>
                 <div class="wrapper">
-                  <div>One</div>
-                  <div>Two</div>
-                  <div>Three</div>
-                  <div>Four</div>
-                  <div>Five</div>
-                  <div>Six</div>
-                  <div>Seven</div>
-                  <div>Eight</div>
+                ${Playlists(state.playlists)}
                 </div>
               </div>
               <div>
                 <h1>Playlist</h1>
                 <div class="wrapper">
-                  <div>One</div>
-                  <div>Two</div>
-                  <div>Three</div>
-                  <div>Four</div>
-                  <div>Five</div>
-                  <div>Six</div>
-                  <div>Seven</div>
-                  <div>Eight</div>
+                  ${Playlists(state.playlists)}
                 </div>
               </div>
               <div>
-                <h1>Genres</h1>
+                <h1>Collections</h1>
                 <div class="wrapper">
                   ${Categories(state.categories)}
                 </div>

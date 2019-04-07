@@ -1,5 +1,5 @@
 export default {
     'body': 'Dashboard',
-    'links': [ 'Dashboard', 'Releases', 'Playlist', 'Genres' ],
+    'links': [ 'Dashboard', ],
     'title': 'MeMusic'
 };

@@ -70,9 +70,26 @@ axios
                     'Authorization': `Bearer ${response.data}`
                 }
             })
-            .then((response) => console.log('playlist', response.data));
+            .then((response) => {
+                State.playlists = response.data.playlists.items;
+                render(State);
+            });
     });
 
+axios
+    .post('https://memusic.herokuapp.com/login')
+    .then((response) => {
+        axios
+            .get('https://api.spotify.com/v1/browse/categories/party/playlists', {
+                'headers': {
+                    'Authorization': `Bearer ${response.data}`
+                }
+            })
+            .then((response) => {
+                State.worldparty = response.data.worldparty.icons; // fix this error
+                render(State);
+            });
+    });
 
 function navHandler(params){
     var destination = startCase(params.page);
