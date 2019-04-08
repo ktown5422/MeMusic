@@ -38,10 +38,7 @@ function render(state){
                             'Authorization': `Bearer ${response.data}`
                         }
                     })
-                    .then((response) => {
-                        State.categories = response.data.artist.items;
-                        render(State);
-                    });
+                    .then((response) => console.log('search', response)); // i need to get search to render on the page when i click search Line 41
             });
     });
 }
@@ -89,7 +86,7 @@ axios
                 }
             })
             .then((response) => {
-                State.worldparty = response.data.worldparty.icons; // fix this error
+                State.worldparty = response.data.playlists.items; // i need to fix this error on Line 89. in the Console i get t.data.worldparty is undefined 92:16
                 render(State);
             });
     });
