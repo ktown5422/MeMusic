@@ -32,11 +32,11 @@ function Playlists(playlists){
         .join('');
 }
 
-function Worldpartys(worldpartys){
+function Worldpartys(playlists){
     return `
     <div>
-      <h4>${worldpartys.name}</h4>
-      <img src="${worldpartys.images[0].url}">
+      <h4>${playlists.name}</h4>
+      <img src="${playlists.images[0].url}">
     </div>
   `;
 }
@@ -62,7 +62,7 @@ export default function Dashboard(state){
               <div class="search-state">
                 <h1>World Party Releases</h1>
                 <div class="wrapper">
-                ${Playlists(state.playlists)}
+                ${Worldparty(state.worldparty)}
                 </div>
               </div>
               <div>
