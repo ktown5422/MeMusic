@@ -29,6 +29,10 @@ function render(state){
     button.addEventListener('click', () => {
         var searchValue = document.querySelector('#site-search').value;
 
+        var d1 = document.getElementById('one');
+
+        d1.insertAdjacentHTML('beforebegin', '<div id="two"><h1>Artist</h1><div class="wrapper">`${Search(state.search)}`</div></div>');
+                
         axios
             .post('https://memusic.herokuapp.com/login')
             .then((response) => {
@@ -38,7 +42,10 @@ function render(state){
                             'Authorization': `Bearer ${response.data}`
                         }
                     })
-                    .then((response) => console.log('search', response)); // i need to get search to render on the page when i click search Line 41
+                    .then((response) => {
+                        State.search = response.data.artists.items;
+                        render(State);
+                    });// i need to get search to render on the page when i click search button Line 41
             });
     });
 }
@@ -86,7 +93,7 @@ axios
                 }
             })
             .then((response) => {
-                State.worldparty = response.data.playlists.items; // i need to fix this error on Line 89. in the Console i get t.data.worldparty is undefined 92:16
+                State.worldparty = response.data.playlists.items;
                 render(State);
             });
     });
