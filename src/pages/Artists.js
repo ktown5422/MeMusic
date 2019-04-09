@@ -23,6 +23,7 @@ export default function Artists(state){
               </div>
               
               <div>
+                <a href="https://memusic.netlify.com/"><h1>Home</h1></a>
                 <h1>Artist</h1>
                 ${artistNames(state.artists)}
               </div>
