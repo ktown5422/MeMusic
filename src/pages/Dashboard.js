@@ -49,23 +49,6 @@ function Worldparty(worldparty){
         .join('');
 }
 
-function Searchs(artists){
-    return `
-  <div>
-    <h4>${artists.name}</h4>
-    <img src="${artists.images[0]}">
-  </div>
-`;
-}
-
-
-function Search(search){
-    return search
-        .slice(0, 8)
-        .map(Searchs)
-        .join('');
-}
-
 
 export default function Dashboard(state){
     return ` 

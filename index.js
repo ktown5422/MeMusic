@@ -29,10 +29,6 @@ function render(state){
     button.addEventListener('click', () => {
         var searchValue = document.querySelector('#site-search').value;
 
-        var d1 = document.getElementById('one');
-
-        d1.insertAdjacentHTML('beforebegin', '<div id="two"><h1>Artist</h1><div class="wrapper">`${Search(state.search)}`</div></div>');
-                
         axios
             .post('https://memusic.herokuapp.com/login')
             .then((response) => {
@@ -43,9 +39,10 @@ function render(state){
                         }
                     })
                     .then((response) => {
-                        State.search = response.data.artists.items;
+                        State.artists = response.data.artists.items;
+                        State.active = 'Artists';
                         render(State);
-                    });// i need to get search to render on the page when i click search button Line 41
+                    });
             });
     });
 }
