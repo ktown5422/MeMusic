@@ -10,6 +10,27 @@ function artistNames(artistsInfo){
   
     return artistsListHtml;
 }
+
+function artistImages(artistsInfo){
+    console.log(artistsInfo);
+
+    var artistsListHtml = '<div class="wrapper">';
+
+    artistsInfo.forEach((artistInfo) => {
+        if(artistInfo.images.length){
+            artistsListHtml += `<h4><img src="${artistInfo.images[1].url}" /></h4>`;
+        }
+        else{
+            artistsListHtml += '<h4>No image available!</h4>';
+        }
+    });
+
+    artistsListHtml += '</div>';
+
+    console.log(artistsListHtml);
+
+    return artistsListHtml;
+}
   
 export default function Artists(state){
     return ` 
@@ -26,6 +47,7 @@ export default function Artists(state){
                 <a href="https://memusic.netlify.com/"><h1>Home</h1></a>
                 <h1>Artist</h1>
                 ${artistNames(state.artists)}
+                ${artistImages(state.artists)}
               </div>
             </div>
           </div>
