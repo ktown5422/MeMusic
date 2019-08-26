@@ -53,6 +53,7 @@ axios
     .then((response) => {
         axios
             .get('https://api.spotify.com/v1/browse/categories', {
+                
                 'headers': {
                     'Authorization': `Bearer ${response.data}`
                 }

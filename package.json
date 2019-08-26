@@ -19,15 +19,15 @@
   },
   "homepage": "https://github.com/ktown5422/MeMusic#readme",
   "devDependencies": {
-    "eslint": "^5.15.3",
+    "eslint": "^5.16.0",
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
+    "axios": "^0.18.1",
+    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "express-promise-router": "^3.0.3",
     "morgan": "^1.9.1",
     "navigo": "^7.1.2"

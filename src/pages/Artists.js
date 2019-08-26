@@ -12,8 +12,6 @@ function artistNames(artistsInfo){
 }
 
 function artistImages(artistsInfo){
-    console.log(artistsInfo);
-
     var artistsListHtml = '<div class="wrapper">';
 
     artistsInfo.forEach((artistInfo) => {
@@ -26,8 +24,7 @@ function artistImages(artistsInfo){
     });
 
     artistsListHtml += '</div>';
-
-    console.log(artistsListHtml);
+    
 
     return artistsListHtml;
 }
